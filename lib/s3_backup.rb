@@ -67,17 +67,22 @@ class S3Backup
 
   def upload_dir(dir_path)
     list_files(dir_path).each do |file|
-      upload(dir_path + '/' + file, false)
+      upload(file_path: dir_path + '/' + file, sync: false)
     end
   end
 
   # Upload a file to the s3 bucket, and sync it back
   # down to the directory
-  def upload(file_path, sync = true)
-    key = key_from_filename(file_path)
-    puts "Uploading #{file_path} to s3 with key #{key}"
-    File.open(file_path, 'rb') do |file|
-      s3_client.put_object(key: key, body: file, bucket: bucket )
+  def upload(file_name: nil, file_handle: nil, file_path: nil, sync: true)
+    if file_path
+      key = key_from_filename(file_path)
+      puts "Uploading #{file_path} to s3 with key #{key}"
+      File.open(file_path, 'rb') do |file|
+        s3_client.put_object(key: key, body: file, bucket: bucket )
+      end
+    else
+      key = key_from_filename(file_name)
+      s3_client.put_object(key: key, body: file_handle.read, bucket: bucket)
     end
     sync_down if sync
   end
