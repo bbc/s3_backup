@@ -7,7 +7,7 @@ Backup a directory to s3 to allow easy syncing between instances.
 Sometime you want to use s3 to backup a directory on an instance,
 and sync that directory across instances. There are lots of ways to
 keep directories in sync across instances, but by far the simplest is 
-to keep the s3 bucket up todate and sync the contents down to the 
+to keep the s3 bucket up to date and sync the contents down to the 
 instances as needed.
 
 We use this gem alongside gem-in-a-box in order to keep our gems
