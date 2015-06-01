@@ -17,7 +17,7 @@ consistent across instances.
 
 First, initialize s3_backup:
 
-    s3b = S3Backup.new(
+    s3 = S3Backup.new(
       region: 'eu-west-1',
       bucket: 'my-storage-bucket',
       prefix: '/some/bucket/path/',
