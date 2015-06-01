@@ -4,7 +4,7 @@ Backup a directory to s3 to allow easy syncing between instances.
 
 ## Why would you use this?
 
-Sometime you want to use s3 to backup a directory on an instance,
+Sometimes you want to use s3 to backup a directory on an instance,
 and sync that directory across instances. There are lots of ways to
 keep directories in sync across instances, but by far the simplest is 
 to keep the s3 bucket up to date and sync the contents down to the 
