@@ -1,5 +1,3 @@
-#!/usr/bin/env ruby22
-
 require 'rubygems'
 require 'aws-sdk'
 require 'fileutils'
